@@ -1,0 +1,15 @@
+[debug] [2024-04-24T12:51:55.575Z] ----------------------------------------------------------------------
+[debug] [2024-04-24T12:51:55.591Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\kusha\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js setup:emulators:firestore
+[debug] [2024-04-24T12:51:55.591Z] CLI Version:   13.7.1
+[debug] [2024-04-24T12:51:55.592Z] Platform:      win32
+[debug] [2024-04-24T12:51:55.592Z] Node Version:  v20.6.1
+[debug] [2024-04-24T12:51:55.592Z] Time:          Wed Apr 24 2024 18:21:55 GMT+0530 (India Standard Time)
+[debug] [2024-04-24T12:51:55.592Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-24T12:51:55.595Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  firestore: downloading cloud-firestore-emulator-v1.19.4.jar... {"metadata":{"emulator":{"name":"firestore"},"message":"downloading cloud-firestore-emulator-v1.19.4.jar..."}}
+[debug] [2024-04-24T12:51:55.694Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.4.jar 
+[debug] [2024-04-24T12:51:56.342Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.4.jar 200
+[debug] [2024-04-24T12:51:56.343Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/cloud-firestore-emulator-v1.19.4.jar [stream]
+[debug] [2024-04-24T12:51:56.427Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-04-24T12:51:56.427Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
