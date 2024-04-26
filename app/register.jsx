@@ -48,7 +48,7 @@ const Register = () => {
 
       setLoading(false)
 
-      router.push('model')
+      // router.push('model')
 
     } catch (e) {
       setError(e)

@@ -35,30 +35,29 @@ export default function RootLayout() {
   
 
   return (
-      // <SafeAreaProvider>
-      //   <Stack/>
-    // </SafeAreaProvider>
-    
-
-      <Stack/>
+    <SafeAreaProvider>
+      <AuthContextProvider>
+        <Layout/>
+      </AuthContextProvider>
+    </SafeAreaProvider>
 
   );
 }
 
 function Layout() {
-  const value = useAuth()
+  const {isAuthenticated} = useAuth()
   const segments = useSegments()
 
   
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   if (typeof authenticated === 'undefined') return;
-  //   const inApp = segments[0] == '(app)';
-  //   if(authenticated && !inApp){
-  //     segments.push('(app)')
-  //   }
+    if (typeof isAuthenticated === 'undefined') return;
+    const inApp = segments[0] == '(app)';
+    if(isAuthenticated && !inApp){
+      segments.push('(app)')
+    }
     
-  // }, [authenticated])
+  }, [isAuthenticated])
   
   return <Slot/>
 }

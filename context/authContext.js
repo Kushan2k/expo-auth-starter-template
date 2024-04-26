@@ -2,11 +2,12 @@ import { useContext, createContext, useState } from "react"
 import { auth } from "../utils/firebaseConfig"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { SafeAreaView } from "react-native-safe-area-context"
+import { Text } from "react-native"
 export const AuthContext = createContext()
 
-export const AuthContextProvider = async ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null)
-  const [authenticated, setAuthenticated] = useState(undefined)
+  const [isAuthenticated, setAuthenticated] = useState(undefined)
 
   const login = async (email, password) => {
     try {
@@ -35,9 +36,17 @@ export const AuthContextProvider = async ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, authenticated, setAuthenticated, login, logout, register }}
+      value={{
+        user,
+        isAuthenticated,
+        setAuthenticated,
+        login,
+        logout,
+        register,
+      }}
     >
-      <Text>Hello world</Text>
+      {children}
+      
     </AuthContext.Provider>
   )
 }
