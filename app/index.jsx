@@ -4,15 +4,31 @@ import React, { useEffect } from 'react'
 import StyledButton from '../components/button'
 import { useAuth } from '../context/authContext'
 import { useRouter } from 'expo-router'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from '../utils/firebaseConfig'
 
 const Index = () => {
 
-  // const { authenticated } = useAuth()
+  const { setAuthenticated,setUser,user,isAuthenticated } = useAuth()
   const router=useRouter()
 
   
   useEffect(() => {
     
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user)
+        setAuthenticated(true)
+        router.replace('home')
+        
+      }
+    
+    })
+
+
+    if (isAuthenticated && user) {
+      router.replace('/(app)')
+    }
     
   }, [])
   

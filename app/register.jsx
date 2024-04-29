@@ -1,6 +1,10 @@
-import { ActivityIndicator, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { ActivityIndicator, ScrollView,Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import { Link, useRouter } from 'expo-router'
+import ModelSelect from '../components/model'
+import {useAuth} from '../context/authContext'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from '../utils/firebaseConfig'
 
 const Register = () => {
   const [email, setEmail] = React.useState('')
@@ -13,8 +17,9 @@ const Register = () => {
   const [confirmPasswordError, setConfirmPasswordError] = React.useState(false)
 
 
+  const [modelVisible, setModelVisible] = React.useState(false)
 
-  const router=useRouter()
+  const [id,setID]=useState(null)
 
   async function register_user() {
 
@@ -44,16 +49,17 @@ const Register = () => {
 
     try {
 
-      // register(email,password)
-
+      const userCred = await createUserWithEmailAndPassword(auth, email, password)
+      const userid=userCred.user.uid
       setLoading(false)
-
-      // router.push('model')
+      setID(userid)
+      setModelVisible(true)
 
     } catch (e) {
       setError(e)
       setEmail('')
       setPassword('')
+      setConfirmPassword('')
       setLoading(false)
     }
 
@@ -125,6 +131,13 @@ const Register = () => {
               </Text>
             </TouchableOpacity>
           </View>
+          
+          {
+            id && modelVisible &&  (
+              <ModelSelect show={modelVisible} setShow={setModelVisible} user_id={id} />
+            )
+          }
+
           <Text className="text-center text-gray-500 mt-4">Already have an account?
             <Link asChild href={'login'}>
               <Text className="text-blue-500">login</Text>

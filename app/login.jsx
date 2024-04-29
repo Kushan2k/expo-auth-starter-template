@@ -1,6 +1,6 @@
 import { View, Text, ScrollView, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native'
 import React from 'react'
-import { Link } from 'expo-router'
+import { Link ,useRouter} from 'expo-router'
 import { auth } from '../utils/firebaseConfig'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 
@@ -8,7 +8,7 @@ import { useAuth } from '../context/authContext'
 
 const Login = () => {
 
-  // const {login}=useAuth()
+  const {setUser,setAuthenticated}=useAuth()
 
   const [email, setEmail] = React.useState('')
   const [password, setPassword] = React.useState('')
@@ -17,6 +17,8 @@ const Login = () => {
   const [error, setError] = React.useState()
 
   const [loading, setLoading] = React.useState(false)
+
+  const router=useRouter()
 
   async function login_user() {
 
@@ -38,7 +40,15 @@ const Login = () => {
 
       // login(email,password)
 
+      const userCred = await signInWithEmailAndPassword(auth, email, password)
+      const user = userCred.user
+      
+      setUser(user)
+      setAuthenticated(true)
+
       setLoading(false)
+
+      router.replace('/(app)')
     } catch (e) {
       setError(e)
       setEmail('')

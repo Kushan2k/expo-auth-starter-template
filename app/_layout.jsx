@@ -1,11 +1,11 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
-import { Slot, Stack, useSegments } from 'expo-router';
+import {  Stack, useRouter, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { SafeAreaProvider} from 'react-native-safe-area-context';
 import { AuthContextProvider, useAuth } from '../context/authContext';
-import { Text, View } from 'react-native';
+import { Text,  } from 'react-native';
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -48,16 +48,20 @@ function Layout() {
   const {isAuthenticated} = useAuth()
   const segments = useSegments()
 
+  const router=useRouter()
+
   
   useEffect(() => {
 
     if (typeof isAuthenticated === 'undefined') return;
     const inApp = segments[0] == '(app)';
     if(isAuthenticated && !inApp){
-      segments.push('(app)')
+      router.replace('home')
+    }else if(!isAuthenticated){
+      router.replace('login')
     }
     
   }, [isAuthenticated])
   
-  return <Slot/>
+  return <Stack screenOptions={{headerShown:false}}/>
 }

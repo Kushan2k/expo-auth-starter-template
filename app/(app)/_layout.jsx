@@ -1,11 +1,17 @@
-import { View, Text } from 'react-native'
+
 import React from 'react'
-import { Stack } from 'expo-router'
+import { Redirect, Stack } from 'expo-router'
+import { useAuth } from '../../context/authContext'
 
 const AppLayout = () => {
-  return (
-    <Stack/>
-  )
+
+  const {user,isAuthenticated}=useAuth()
+ 
+  if(!isAuthenticated || !user){
+    return <Redirect href={'/login'}/>
+  }
+
+  return <Stack screenOptions={{headerShown:false}} />
 }
 
 export default AppLayout
