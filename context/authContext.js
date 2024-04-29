@@ -9,10 +9,12 @@ export const AuthContextProvider = ({ children }) => {
   const [isAuthenticated, setAuthenticated] = useState(undefined)
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const dec = onAuthStateChanged(auth, (user) => {
       setUser(user)
       setAuthenticated(true)
     })
+
+    return dec()
   }, [])
 
   return (

@@ -48,7 +48,7 @@ const Login = () => {
 
       setLoading(false)
 
-      router.replace('/(app)')
+      router.replace('/home')
     } catch (e) {
       setError(e)
       setEmail('')

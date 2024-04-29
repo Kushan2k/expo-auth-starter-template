@@ -48,10 +48,11 @@ const ModelSelect = ({ show, setShow,user_id }) => {
         type,
       })
 
+      setLoading(false)
       router.replace('/login')
       
 
-      setLoading(false)
+      
     } catch (e) {
       setError(e)
       setLoading(false)
