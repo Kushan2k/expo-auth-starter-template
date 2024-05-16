@@ -116,6 +116,11 @@ const Login = () => {
               <Text className="text-blue-500">Register</Text>
             </Link>
           </Text>
+          <Text className="text-center text-gray-500 mt-4">Go to index 
+            <Link asChild href={'/index'}>
+              <Text className="text-blue-500"> index</Text>
+            </Link>
+          </Text>
         </View>
       </View>
     </ScrollView>
