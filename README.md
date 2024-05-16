@@ -31,12 +31,16 @@ npm run android
 
 ### Index Screen
 
-![register screen](screenshots/index.png)
+<div align='center'>
+<img style="width: 250px;" src="./screenshots/index.png">
+</div>
 
 ### Login Screen Screen
-
-![register screen](screenshots/login.png)
+<div align='center'>
+<img style="width: 250px;" src="./screenshots/login.png">
+</div>
 
 ### Register Screen
-
-![register screen](screenshots/reg.png)
+<div align='center'>
+<img style="width: 250px;" src="./screenshots/reg.png">
+</div>
