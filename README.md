@@ -25,3 +25,18 @@ Or
 ```bash
 npm run android
 ```
+
+
+## ScreenShots
+
+### Index Screen
+
+![register screen](screenshots/index.png)
+
+### Login Screen Screen
+
+![register screen](screenshots/login.png)
+
+### Register Screen
+
+![register screen](screenshots/reg.png)
