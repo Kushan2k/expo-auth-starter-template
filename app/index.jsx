@@ -54,7 +54,7 @@ const Index = () => {
         }}/>
       
         <View className='w-2/3 text-center mb-6'>
-          <Text className="text-4xl font-bold mb-8 text-center">Welcome to Traveller.</Text>
+          <Text className="text-4xl font-bold mb-8 text-center">Welcome to App Name.</Text>
           <Text className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione accusantium in praesentium, velit exercitationem ut! Magni doloremque culpa totam adipisci ipsum natus iste ullam temporibus? Possimus voluptate neque labore voluptatem.</Text>
         </View>
 

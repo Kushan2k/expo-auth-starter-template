@@ -2,7 +2,6 @@ import { ActivityIndicator, ScrollView,Text, TextInput, TouchableOpacity, View }
 import React, { useState } from 'react'
 import { Link, useRouter } from 'expo-router'
 import ModelSelect from '../components/model'
-import {useAuth} from '../context/authContext'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../utils/firebaseConfig'
 

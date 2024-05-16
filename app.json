@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pathum_app",
-    "slug": "pathum_app",
+    "name": "Authentication Template",
+    "slug": "authentication_temlate",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",

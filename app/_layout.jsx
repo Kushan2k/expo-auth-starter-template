@@ -32,8 +32,6 @@ export default function RootLayout() {
     return <Text>Loadning..</Text>;
   }
 
-  
-
   return (
     <SafeAreaProvider>
       <AuthContextProvider>
@@ -58,7 +56,7 @@ function Layout() {
     if(isAuthenticated && !inApp){
       router.replace('home')
     }else if(!isAuthenticated){
-      router.replace('login')
+      router.replace('index')
     }
     
   }, [isAuthenticated])
